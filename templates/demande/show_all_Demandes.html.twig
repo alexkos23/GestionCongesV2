@@ -1,0 +1,31 @@
+
+{# template/demande/show_all_Demandes.html.twig #}
+
+{% extends 'base.html.twig' %}
+{%  block title %}Affichage d'un employé {% endblock %}
+
+{% block body %}
+
+<h1>Voici la liste des demandes: </h1>
+<table>
+        <tr>
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>Email</th>
+            <th>Type de contrat</th>
+            <th>Date d'embauche</th>
+        </tr>
+    {% for employe in employes %}
+        
+        <tr>
+               <td>{{ employe.nom }}</td>
+               <td>{{ employe.prenom }}</td>
+               <td>{{ employe.email }}</td>
+               <td>{{ employe.typeContrat }}</td>
+               <td>{{ employe.dateEmbauche|date("d/m/Y") }}</td>
+        </tr>
+    {% endfor %}
+
+</table>
+
+{% endblock %}

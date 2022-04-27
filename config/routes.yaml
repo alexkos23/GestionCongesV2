@@ -1,0 +1,38 @@
+controllers:
+    resource: ../src/Controller/
+    type: annotation
+
+kernel:
+    resource: ../src/Kernel.php
+    type: annotation
+
+add:
+    path: /add
+    controller: App\Controller\EmployesController::add
+
+show_employes:
+    path: /show_employe/{id}
+    controller: App\Controller\EmployesController::show
+    requirements:
+        id: '\d+'
+
+
+show_all_employes:
+    path: /show_all_employes
+    controller: App\Controller\EmployesController::showAll
+
+new_employe:
+    path: /new_employe
+    controller: App\Controller\EmployesController::new
+
+show_all_demandes:
+    path: /show_all_demandes
+    controller: App\Controller\DemandeController::showAllDemandes
+
+new_demande:
+    path: /new_demande
+    controller: App\Controller\DemandeController::new
+
+home: 
+    path: /home
+    controller: App\controller\HomeController

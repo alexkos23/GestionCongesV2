@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Demande{% endblock %}
+{% block stylesheets %} 
+
+<link rel="stylesheet" href="/css/style.css"> {% endblock %}
+{% block body %}
+   <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/">Gestion des congés </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="{{ path('new_employe') }}">Nouvel Employé</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ path('show_all_employes') }}">Lister les employés</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ path('app_demandev2_index') }}">Demandes</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+    <h1>Demande</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ demandev2.id }}</td>
+            </tr>
+            <tr>
+                <th>Employé</th>
+                <td>{{ demandev2.nomEmploye }}</td>
+            </tr>
+            <tr>
+                <th>Type congé</th>
+                <td>{{ demandev2.typeDemande }}</td>
+            </tr>
+            <tr>
+                <th>DateDebut</th>
+                <td>{{ demandev2.dateDebut ? demandev2.dateDebut|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>DateFin</th>
+                <td>{{ demandev2.dateFin ? demandev2.dateFin|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Commentaire</th>
+                <td>{{ demandev2.commentaire }}</td>
+            </tr>
+            <tr>
+                <th>Statut</th>
+                <td>{{ demandev2.statut }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_demandev2_index') }}">Retour à la liste</a>
+
+    <a href="{{ path('app_demandev2_edit', {'id': demandev2.id}) }}">Modifier</a>
+
+    {{ include('demandev2/_delete_form.html.twig') }}
+{% endblock %}

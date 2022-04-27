@@ -1,0 +1,26 @@
+input {
+    width: 100%;
+  }
+h1{
+    padding-left: 2em;
+}
+  
+h3{    
+    margin-left: 3em;
+    margin-right: 3em;
+}
+table{
+    
+    margin-left: 3em;
+    margin-right: 3em;
+    border-collapse: separate !important;
+    border-spacing: 15px !important;
+}
+a{
+    margin-left: 3em;
+    margin-right: 3em;
+}
+#demandev2{
+    margin-left: 3em;
+    margin-right: 3em;
+}

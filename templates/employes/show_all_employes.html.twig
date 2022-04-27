@@ -1,0 +1,54 @@
+{# template/employes/show_all_employe.html.twig #}
+
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+{% endblock %}
+{%  block title %}Affichage d'un employé {% endblock %}
+
+{% block body %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/">Gestion des congés </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="{{ path('new_employe') }}">Nouvel Employé</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ path('show_all_employes') }}">Lister les employés</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ path('app_demandev2_index') }}">Demandes</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<h1>Liste des employés: </h1>
+<table>
+        <tr>
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>Email</th>
+            <th>Type de contrat</th>
+            <th>Date d'embauche</th>
+        </tr>
+    {% for employe in employes %}
+        
+        <tr>
+               <td>{{ employe.nom }}</td>
+               <td>{{ employe.prenom }}</td>
+               <td>{{ employe.email }}</td>
+               <td>{{ employe.typeContrat }}</td>
+               <td>{{ employe.dateEmbauche|date("d/m/Y") }}</td>
+        </tr>
+    {% endfor %}
+
+</table>
+<a href="{{ path('new_employe') }}">Ajouter un employé</a>
+{% endblock %}

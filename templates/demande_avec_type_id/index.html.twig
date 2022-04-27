@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Demande index{% endblock %}
+
+{% block body %}
+    <h1>Demande index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Type</th>
+                <th>DateDebut</th>
+                <th>DateFin</th>
+                <th>Commentaire</th>
+                <th>Statut</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for demande in demandes %}
+            <tr>
+                <td>{{ demande.id }}</td>
+                <td>{{ demande.type }}</td>
+                <td>{{ demande.dateDebut ? demande.dateDebut|date('Y-m-d') : '' }}</td>
+                <td>{{ demande.dateFin ? demande.dateFin|date('Y-m-d') : '' }}</td>
+                <td>{{ demande.commentaire }}</td>
+                <td>{{ demande.statut }}</td>
+                <td>
+                    <a href="{{ path('app_demande_avec_type_id_show', {'id': demande.id}) }}">show</a>
+                    <a href="{{ path('app_demande_avec_type_id_edit', {'id': demande.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_demande_avec_type_id_new') }}">Create new</a>
+{% endblock %}
